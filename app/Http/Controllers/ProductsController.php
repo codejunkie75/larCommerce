@@ -9,7 +9,8 @@ use App\product;
 class ProductsController extends Controller
 {
     public function index($primary_category,$secondary_category){
-      return Product::IndexProducts($primary_category,$secondary_category)->get();
+      return $products = Product::IndexProducts($primary_category,$secondary_category)->get();
+      return view('products.index',compact('products','primary_category','secondary_category'));
     }
     public function view(Product $id){
       return $id;

@@ -3,6 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Product;
+use App\Basket;
+use View;
+use Config;
+use DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +18,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      View::share('navbar', Product::navbar());
+      View::composer('*', function($view){
+       $view->with('basketTotal', Basket::basketTotal());
+      });
     }
 
     /**

@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/products/index/{primary_category}/{secondary_category}', 'productsController@index');
+Route::get('/products/{primary_category}/{secondary_category}', 'productsController@index');
 Route::get('/products/{id}', 'productsController@view');
 
 Route::get('/', function () {
